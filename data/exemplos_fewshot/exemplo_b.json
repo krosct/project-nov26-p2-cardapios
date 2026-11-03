@@ -1,0 +1,29 @@
+{
+  "restaurante": "Grill do Parque",
+  "itens": [
+    {
+      "nome": "Espetinho de Queijo Coalho",
+      "preco": 9.0,
+      "categoria": "entrada",
+      "descricao": null,
+      "alergenos": null,
+      "vegetariano": true
+    },
+    {
+      "nome": "Prato Executivo de Alcatra",
+      "preco": 38.0,
+      "categoria": "prato_principal",
+      "descricao": "arroz, feijão, alcatra e fritas",
+      "alergenos": null,
+      "vegetariano": false
+    },
+    {
+      "nome": "Mousse de Maracujá",
+      "preco": null,
+      "categoria": "sobremesa",
+      "descricao": null,
+      "alergenos": null,
+      "vegetariano": true
+    }
+  ]
+}

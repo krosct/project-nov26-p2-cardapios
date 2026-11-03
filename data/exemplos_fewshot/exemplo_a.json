@@ -1,0 +1,33 @@
+{
+  "restaurante": "Cantinho da Tapioca",
+  "itens": [
+    {
+      "nome": "Tapioca de Frango",
+      "preco": 16.0,
+      "categoria": "lanche",
+      "descricao": "frango desfiado e requeijão",
+      "alergenos": [
+        "lactose"
+      ],
+      "vegetariano": null
+    },
+    {
+      "nome": "Tapioca de Coco",
+      "preco": 12.0,
+      "categoria": "sobremesa",
+      "descricao": "coco ralado e leite condensado",
+      "alergenos": [
+        "lactose"
+      ],
+      "vegetariano": null
+    },
+    {
+      "nome": "Café Coado",
+      "preco": 5.0,
+      "categoria": "bebida",
+      "descricao": null,
+      "alergenos": [],
+      "vegetariano": null
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+Cardápio — Padaria Pão Quente
+
+PÃO NA CHAPA
+  pão francês com manteiga
+  R$ 7,50
+  Contém: glúten e leite.
+MISTO QUENTE
+  pão de forma, presunto & queijo
+  R$ 14,00
+  ⚠ gluten e derivados de leite
+COXINHA DE FRANGO
+  massa de batata e frango
+  R$ 8,00
+  ⚠ glúten e derivados de leite
+PÃO DE QUEIJO (6 UN.)
+  R$ 12,00
+  Contém: lactose e ovos.
+BOLO DE CENOURA
+  c/ cobertura de chocolate
+  R$ 9,50
+  Alérgicos: contém trigo, lactose e ovos
+CAFÉ COM LEITE
+  R$ 7,00
+  ⚠ derivados de leite
+CAPPUCCINO
+  café, leite e canela
+  R$ 10,00
+  Contém: derivados de leite.
+SUCO DE LARANJA
+  R$ 9,00
+  Sem alergênicos.
