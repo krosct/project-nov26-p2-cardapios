@@ -1,0 +1,862 @@
+{
+  "zero_shot": [
+    {
+      "menu": "menu_01",
+      "item": "Pizza de Chocolate",
+      "tipo": "categoria",
+      "extraido": "pizza",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_03",
+      "item": "Milkshake de Ovomaltine",
+      "tipo": "categoria",
+      "extraido": "bebida",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Quesadilla de Queijo",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    }
+  ],
+  "few_shot": [
+    {
+      "menu": "menu_01",
+      "item": "Pizza de Chocolate",
+      "tipo": "categoria",
+      "extraido": "pizza",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_03",
+      "item": "Milkshake de Ovomaltine",
+      "tipo": "categoria",
+      "extraido": "bebida",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_07",
+      "item": "Pão de Queijo (6 un.)",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_07",
+      "item": "Coxinha de Frango",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Nachos com Guacamole",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Quesadilla de Queijo",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Burrito de Frango",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Tacos de Carne",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_10",
+      "item": "Linguiça Toscana",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_12",
+      "item": "Cuscuz Recheado",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_16",
+      "item": "Pastel de Chocolate",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Enroladinho de Salsicha",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Coxinha",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    }
+  ],
+  "zero_shot_modelo_pequeno": [
+    {
+      "menu": "menu_01",
+      "item": "Pão de Alho",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_01",
+      "item": "Pizza de Chocolate",
+      "tipo": "categoria",
+      "extraido": "pizza",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_01",
+      "item": "Pizza Portuguesa",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "pizza"
+    },
+    {
+      "menu": "menu_01",
+      "item": "Pizza Frango com Catupiry",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "pizza"
+    },
+    {
+      "menu": "menu_01",
+      "item": "Pizza Quatro Queijos",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "pizza"
+    },
+    {
+      "menu": "menu_01",
+      "item": "Pizza Calabresa",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "pizza"
+    },
+    {
+      "menu": "menu_01",
+      "item": "Pizza Margherita",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "pizza"
+    },
+    {
+      "menu": "menu_02",
+      "item": "Temaki de Camarão",
+      "tipo": "alergenos",
+      "extraido": [
+        "gluten",
+        "ovo"
+      ],
+      "gabarito": [
+        "frutos_do_mar",
+        "gluten",
+        "ovo"
+      ]
+    },
+    {
+      "menu": "menu_02",
+      "item": "Temaki de Camarão",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_02",
+      "item": "Guioza",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_02",
+      "item": "Uramaki Filadélfia",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_03",
+      "item": "Refrigerante Lata",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Combo Brasa",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Milkshake de Ovomaltine",
+      "tipo": "alergenos",
+      "extraido": [
+        "ovo"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Onion Rings",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Onion Rings",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_03",
+      "item": "Batata Frita Média",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Batata Frita Média",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_03",
+      "item": "Chicken Crispy",
+      "tipo": "alergenos",
+      "extraido": [
+        "ovo"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Chicken Crispy",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_03",
+      "item": "Smash Duplo",
+      "tipo": "alergenos",
+      "extraido": [
+        "lactose"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Smash Duplo",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_03",
+      "item": "Brasa Clássico",
+      "tipo": "alergenos",
+      "extraido": [
+        "lactose"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "Brasa Clássico",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_03",
+      "item": "X-Tudo",
+      "tipo": "alergenos",
+      "extraido": [
+        "ovo"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_03",
+      "item": "X-Tudo",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_04",
+      "item": "Suco Natural 500ml",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_04",
+      "item": "Pudim de Leite",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_04",
+      "item": "Salada Simples",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_04",
+      "item": "Salada Simples",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_04",
+      "item": "Strogonoff de Frango",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_04",
+      "item": "Feijoada Completa",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_04",
+      "item": "Marmita de Peixe Frito",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_04",
+      "item": "Marmita de Carne de Panela",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_04",
+      "item": "Marmita de Frango Grelhado",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_05",
+      "item": "Salada Verde Raiz",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_05",
+      "item": "Coxinha de Jaca",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_06",
+      "item": "Água de Coco",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_06",
+      "item": "Adicional de Paçoca",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_06",
+      "item": "Adicional de Nutella",
+      "tipo": "alergenos",
+      "extraido": [
+        "lactose"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_06",
+      "item": "Cupuaçu 500ml",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_07",
+      "item": "Pão de Queijo (6 un.)",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_07",
+      "item": "Coxinha de Frango",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_07",
+      "item": "Pão na Chapa",
+      "tipo": "categoria",
+      "extraido": "entrada",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Tacos de Carne",
+      "tipo": "categoria",
+      "extraido": "entrada",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Nachos com Guacamole",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_08",
+      "item": "Quesadilla de Queijo",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_09",
+      "item": "Tabule",
+      "tipo": "alergenos",
+      "extraido": [
+        "gluten"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_09",
+      "item": "Kibe Frito",
+      "tipo": "alergenos",
+      "extraido": [
+        "gluten"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_10",
+      "item": "Mandioca Frita",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_10",
+      "item": "Linguiça Toscana",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_12",
+      "item": "Caldo de Cana",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_12",
+      "item": "Bolo de Rolo",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_12",
+      "item": "Cuscuz Recheado",
+      "tipo": "alergenos",
+      "extraido": [
+        "ovo"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_12",
+      "item": "Tapioca de Queijo Coalho",
+      "tipo": "alergenos",
+      "extraido": [
+        "ovo"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_12",
+      "item": "Tapioca de Queijo Coalho",
+      "tipo": "categoria",
+      "extraido": "sobremesa",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_12",
+      "item": "Escondidinho de Charque",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_12",
+      "item": "Escondidinho de Charque",
+      "tipo": "categoria",
+      "extraido": "pizza",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_12",
+      "item": "Carne de Sol com Macaxeira",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_13",
+      "item": "Biscoito da Sorte",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_13",
+      "item": "Rolinho Primavera (4 un.)",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_13",
+      "item": "Camarão Agridoce",
+      "tipo": "alergenos",
+      "extraido": [
+        "peixe",
+        "gluten"
+      ],
+      "gabarito": [
+        "frutos_do_mar",
+        "gluten"
+      ]
+    },
+    {
+      "menu": "menu_13",
+      "item": "Carne com Brócolis",
+      "tipo": "alergenos",
+      "extraido": [
+        "soja",
+        "peixe"
+      ],
+      "gabarito": [
+        "soja",
+        "frutos_do_mar"
+      ]
+    },
+    {
+      "menu": "menu_13",
+      "item": "Frango Xadrez",
+      "tipo": "alergenos",
+      "extraido": [
+        "castanhas",
+        "soja"
+      ],
+      "gabarito": [
+        "amendoim",
+        "soja"
+      ]
+    },
+    {
+      "menu": "menu_14",
+      "item": "Edamame",
+      "tipo": "categoria",
+      "extraido": "outro",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_15",
+      "item": "Cobertura Extra",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_16",
+      "item": "Pastel de Chocolate",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_16",
+      "item": "Pastel de Palmito",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_16",
+      "item": "Pastel de Pizza",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_16",
+      "item": "Pastel de Queijo",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_16",
+      "item": "Pastel de Carne",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Vitamina de Banana",
+      "tipo": "categoria",
+      "extraido": "sobremesa",
+      "gabarito": "bebida"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Enroladinho de Salsicha",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Coxinha",
+      "tipo": "categoria",
+      "extraido": "sobremesa",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Americano",
+      "tipo": "alergenos",
+      "extraido": [
+        "ovo"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_17",
+      "item": "Americano",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Bauru",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_17",
+      "item": "Cachorro-Quente Completo",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "lanche"
+    },
+    {
+      "menu": "menu_18",
+      "item": "Suco de Caju",
+      "tipo": "alergenos",
+      "extraido": null,
+      "gabarito": []
+    },
+    {
+      "menu": "menu_18",
+      "item": "Cocada de Forno",
+      "tipo": "categoria",
+      "extraido": "lanche",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_18",
+      "item": "Isca de Peixe",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_18",
+      "item": "Casquinha de Siri",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_18",
+      "item": "Moqueca de Camarão",
+      "tipo": "categoria",
+      "extraido": "entrada",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_18",
+      "item": "Moqueca de Peixe",
+      "tipo": "categoria",
+      "extraido": "entrada",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_19",
+      "item": "Salada Caesar com Frango",
+      "tipo": "categoria",
+      "extraido": "entrada",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_19",
+      "item": "Iogurte com Granola",
+      "tipo": "categoria",
+      "extraido": "bebida",
+      "gabarito": "sobremesa"
+    },
+    {
+      "menu": "menu_19",
+      "item": "Salada de Quinoa",
+      "tipo": "categoria",
+      "extraido": "entrada",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_19",
+      "item": "Salada Caprese",
+      "tipo": "categoria",
+      "extraido": "entrada",
+      "gabarito": "prato_principal"
+    },
+    {
+      "menu": "menu_20",
+      "item": "Porção Mista",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_20",
+      "item": "Refrigerante Lata",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_20",
+      "item": "Chopp 300ml",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_20",
+      "item": "Caldinho de Feijão",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_20",
+      "item": "Caldinho de Feijão",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_20",
+      "item": "Torresmo",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_20",
+      "item": "Torresmo",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_20",
+      "item": "Calabresa Acebolada",
+      "tipo": "alergenos",
+      "extraido": [],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_20",
+      "item": "Calabresa Acebolada",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    },
+    {
+      "menu": "menu_20",
+      "item": "Batata com Cheddar e Bacon",
+      "tipo": "alergenos",
+      "extraido": [
+        "lactose"
+      ],
+      "gabarito": null
+    },
+    {
+      "menu": "menu_20",
+      "item": "Batata com Cheddar e Bacon",
+      "tipo": "categoria",
+      "extraido": "prato_principal",
+      "gabarito": "entrada"
+    }
+  ]
+}

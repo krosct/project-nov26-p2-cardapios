@@ -1,0 +1,43 @@
+{
+  "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "modelo_pequeno": "liquid/lfm-2.5-2.6b:free",
+  "zero_shot": {
+    "json_valido": 1.0,
+    "valido_na_1a_tentativa": 1.0,
+    "f1_nomes": 1.0,
+    "acuracia_preco": 1.0,
+    "acuracia_categoria": 0.982,
+    "precisao_alergenos": 1.0,
+    "recall_alergenos": 1.0,
+    "acuracia_status_alergenos": 1.0,
+    "latencia_media_s": 21.28,
+    "tokens_entrada_medios": 998.7,
+    "tokens_saida_medios": 1251.0
+  },
+  "few_shot": {
+    "json_valido": 1.0,
+    "valido_na_1a_tentativa": 1.0,
+    "f1_nomes": 1.0,
+    "acuracia_preco": 1.0,
+    "acuracia_categoria": 0.912,
+    "precisao_alergenos": 1.0,
+    "recall_alergenos": 1.0,
+    "acuracia_status_alergenos": 1.0,
+    "latencia_media_s": 18.643,
+    "tokens_entrada_medios": 1579.7,
+    "tokens_saida_medios": 1348.9
+  },
+  "zero_shot_modelo_pequeno": {
+    "json_valido": 1.0,
+    "valido_na_1a_tentativa": 0.85,
+    "f1_nomes": 0.937,
+    "acuracia_preco": 1.0,
+    "acuracia_categoria": 0.625,
+    "precisao_alergenos": 0.884,
+    "recall_alergenos": 0.966,
+    "acuracia_status_alergenos": 0.718,
+    "latencia_media_s": 6.54,
+    "tokens_entrada_medios": 1295.6,
+    "tokens_saida_medios": 3421.55
+  }
+}
