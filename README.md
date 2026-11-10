@@ -6,16 +6,20 @@ Pipeline que transforma cardápios bagunçados (texto de PDF, WhatsApp ou foto t
 
 ## Resultados
 
-20 cardápios, 153 itens. Modelos gratuitos via OpenRouter; métricas por campo sobre os itens casados com o gabarito.
+20 cardápios, 153 itens. Modelos gratuitos via OpenRouter, temperatura 0. A tabela mostra a 1ª execução; **3 execuções** (cache vazio nas duas últimas) dão a variação em [`reports/repeticoes.json`](reports/repeticoes.json): categoria zero-shot 0,98 / 0,97 / 0,95, few-shot 0,92 / 0,94 / 0,94, modelo pequeno 0,61 / 0,62 / 0,62; alergênicos do modelo pequeno (informado × não informado) 0,73 / 0,71 / 0,68. Nomes e preço não variam.
 
-| Configuração | F1 nomes | Preço | Categoria | Alergênicos (P / R) | "Informado × não informado" | Latência média |
-|---|---|---|---|---|---|---|
-| **Nemotron 3 Ultra (550B), zero-shot** | **1,00** | **1,00** | **0,98** | **1,00 / 1,00** | **1,00** | 21,3 s |
-| Nemotron 3 Ultra, few-shot (2 exemplos) | 1,00 | 1,00 | 0,91 | 1,00 / 1,00 | 1,00 | 18,6 s |
-| LFM 2.5 (2,6B), zero-shot | 0,94 | 1,00 | 0,63 | 0,88 / 0,97 | **0,72** | 6,5 s |
+> ⚠️ **Os cardápios são sintéticos**: o texto bagunçado é gerado por template a partir do próprio gabarito, e os alergênicos vêm de um dicionário fixo de sinônimos. Por construção, tudo está dedutível do texto, então o modelo grande **satura o benchmark** (1,00 em nomes, preço e alergênicos). Os 1,00 medem o gerador de ruído, não a extração de cardápios reais; o que o benchmark separa bem é modelo grande × pequeno e a regra "não deduzir alergênicos".
+
+Métricas de campo **por item** (média micro: soma dos itens de todos os cardápios), calculadas só sobre os itens casados com o gabarito (similaridade de nome ≥ 0,85).
+
+| Configuração | Itens casados | F1 nomes | Preço | Categoria | Alergênicos (P / R) | "Informado × não informado" | Latência média |
+|---|---|---|---|---|---|---|---|
+| Nemotron 3 Ultra (550B), zero-shot | 153/153 | 1,00 | 1,00 | 0,98 | 1,00 / 1,00 | 1,00 | 21,3 s |
+| Nemotron 3 Ultra, few-shot (2 exemplos) | 153/153 | 1,00 | 1,00 | 0,92 | 1,00 / 1,00 | 1,00 | 18,6 s |
+| LFM 2.5 (2,6B), zero-shot | 144/153 | 0,94 | 1,00 | 0,61 | 0,88 / 0,97 | 0,73 | 6,5 s |
 
 - 100% dos JSONs foram válidos; com o modelo pequeno, 15% só ficaram válidos na segunda tentativa (retry com o erro do Pydantic).
-- **Few-shot piorou a categoria** (0,98 → 0,91) e custou +58% de tokens de entrada: os exemplos (uma tapiocaria) puxaram petiscos para `lanche`. Os 3 erros restantes do zero-shot são ambíguos de verdade (pizza doce é `pizza` ou `sobremesa`?).
+- **Few-shot ficou abaixo do zero-shot em categoria nas 3 execuções**, mas a diferença encolhe com a repetição (0,98 × 0,92 na 1ª; 0,95 × 0,94 na 3ª): é um efeito pequeno e instável, não uma regra e custou +58% de tokens de entrada. Na 1ª execução os erros extras eram petiscos classificados como `lanche` (os exemplos são de uma tapiocaria), hipótese que não foi isolada em experimento próprio. Os 3 erros restantes do zero-shot são ambíguos de verdade (pizza doce é `pizza` ou `sobremesa`?).
 - **O modelo pequeno é 3× mais rápido, mas inseguro:** em 38 itens cujo cardápio **não declara** alergênicos, ele preencheu a lista mesmo assim — deduzindo pelos ingredientes ou afirmando que não havia alergênicos. Para alergias, esse é o erro que não pode acontecer.
 
 ## Como funciona
@@ -65,11 +69,11 @@ uv run python scripts/evaluate.py                     # gera reports/resumo.json
 - **Validação + retry em vez de confiar no "JSON mode":** muitos modelos gratuitos não suportam saída estruturada nativa; o laço com Pydantic funciona com qualquer modelo e deixa visível quantas tentativas cada um precisou.
 - **Métricas determinísticas em vez de LLM como juiz:** com gabarito estruturado, comparar campos é mais barato, reproduzível e não erra.
 - **`None` ≠ `[]` nos alergênicos:** é o que permite a um sistema downstream (ex.: um assistente) recusar responder "isso tem glúten?" quando o restaurante não informou — é exatamente o que o modelo pequeno quebra.
-- **Cache de respostas:** reexecutar a avaliação não gasta requisições, e os números do README são reproduzíveis.
+- **Cache de respostas:** reexecutar a avaliação não gasta requisições, e os números do README são reproduzíveis. `scripts/reagregar.py` refaz o `resumo.json` a partir dos CSVs sem chamar a API.
 
 ## Limitações e próximos passos
 
-- Dados sintéticos: o modelo grande satura o benchmark em quase todos os campos. Próximo passo: cardápios reais (PDF/foto) e entrada por imagem com um modelo multimodal.
-- 20 cardápios é pouco para diferenças pequenas (ex.: 0,98 × 0,91 em categoria são 3 × 13 itens).
+- Dados sintéticos: o modelo grande satura o benchmark em quase todos os campos, e os mesmos 20 cardápios serviram para escrever o prompt e para avaliar (não há conjunto de desenvolvimento separado; o prompt de sistema não mudou desde o commit anterior à primeira avaliação, mas o histórico não mostra iterações locais anteriores a esse commit). Próximo teste: 5 a 10 cardápios reais, rotulados à mão e usados só para avaliar. Próximo passo: cardápios reais (PDF/foto) e entrada por imagem com um modelo multimodal.
+- 20 cardápios é pouco para diferenças pequenas (ex.: em categoria, zero-shot e few-shot variam 0,95–0,98 e 0,92–0,94 entre execuções).
 - Categoria tem ambiguidade real; uma taxonomia com definições (ou múltiplas categorias por item) reduziria o "erro" que não é erro.
 - Custo: em produção, o próximo experimento seria um modelo médio e pago, comparando custo por cardápio com a taxa de erros em alergênicos.
