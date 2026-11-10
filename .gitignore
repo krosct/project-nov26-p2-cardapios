@@ -22,7 +22,8 @@ htmlcov/
 # ===== Notebooks =====
 .ipynb_checkpoints/
 
-# ===== Dados (só o README de cada pasta vai pro Git) =====
+# ===== Dados brutos =====
+data/raw/
 
 # ===== Modelos e checkpoints =====
 models/
