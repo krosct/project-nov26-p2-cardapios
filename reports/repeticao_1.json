@@ -1,0 +1,47 @@
+{
+  "zero_shot": {
+    "json_valido": 1.0,
+    "valido_na_1a_tentativa": 1.0,
+    "itens_casados": 153,
+    "itens_gabarito": 153,
+    "f1_nomes": 1.0,
+    "acuracia_preco": 1.0,
+    "acuracia_categoria": 0.974,
+    "precisao_alergenos": 1.0,
+    "recall_alergenos": 1.0,
+    "acuracia_status_alergenos": 1.0,
+    "latencia_media_s": 21.537,
+    "tokens_entrada_medios": 998.7,
+    "tokens_saida_medios": 1278.3
+  },
+  "few_shot": {
+    "json_valido": 1.0,
+    "valido_na_1a_tentativa": 1.0,
+    "itens_casados": 153,
+    "itens_gabarito": 153,
+    "f1_nomes": 1.0,
+    "acuracia_preco": 1.0,
+    "acuracia_categoria": 0.935,
+    "precisao_alergenos": 1.0,
+    "recall_alergenos": 1.0,
+    "acuracia_status_alergenos": 1.0,
+    "latencia_media_s": 19.965,
+    "tokens_entrada_medios": 1579.7,
+    "tokens_saida_medios": 1337.9
+  },
+  "zero_shot_modelo_pequeno": {
+    "json_valido": 1.0,
+    "valido_na_1a_tentativa": 0.85,
+    "itens_casados": 147,
+    "itens_gabarito": 153,
+    "f1_nomes": 0.961,
+    "acuracia_preco": 1.0,
+    "acuracia_categoria": 0.619,
+    "precisao_alergenos": 0.872,
+    "recall_alergenos": 0.924,
+    "acuracia_status_alergenos": 0.714,
+    "latencia_media_s": 5.987,
+    "tokens_entrada_medios": 1294.0,
+    "tokens_saida_medios": 3361.05
+  }
+}

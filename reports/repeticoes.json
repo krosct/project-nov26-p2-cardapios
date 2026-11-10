@@ -1,0 +1,116 @@
+{
+  "zero_shot": {
+    "f1_nomes": {
+      "execucoes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": 1.0,
+      "max": 1.0
+    },
+    "acuracia_preco": {
+      "execucoes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": 1.0,
+      "max": 1.0
+    },
+    "acuracia_categoria": {
+      "execucoes": [
+        0.98,
+        0.974,
+        0.954
+      ],
+      "min": 0.954,
+      "max": 0.98
+    },
+    "acuracia_status_alergenos": {
+      "execucoes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "few_shot": {
+    "f1_nomes": {
+      "execucoes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": 1.0,
+      "max": 1.0
+    },
+    "acuracia_preco": {
+      "execucoes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": 1.0,
+      "max": 1.0
+    },
+    "acuracia_categoria": {
+      "execucoes": [
+        0.915,
+        0.935,
+        0.941
+      ],
+      "min": 0.915,
+      "max": 0.941
+    },
+    "acuracia_status_alergenos": {
+      "execucoes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "zero_shot_modelo_pequeno": {
+    "f1_nomes": {
+      "execucoes": [
+        0.941,
+        0.961,
+        0.954
+      ],
+      "min": 0.941,
+      "max": 0.961
+    },
+    "acuracia_preco": {
+      "execucoes": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": 1.0,
+      "max": 1.0
+    },
+    "acuracia_categoria": {
+      "execucoes": [
+        0.611,
+        0.619,
+        0.616
+      ],
+      "min": 0.611,
+      "max": 0.619
+    },
+    "acuracia_status_alergenos": {
+      "execucoes": [
+        0.729,
+        0.714,
+        0.678
+      ],
+      "min": 0.678,
+      "max": 0.729
+    }
+  }
+}

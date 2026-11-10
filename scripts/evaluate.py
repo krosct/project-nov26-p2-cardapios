@@ -10,14 +10,15 @@ from pathlib import Path
 
 from project_nov26_p2_cardapios.extrator import extrair
 from project_nov26_p2_cardapios.llm import MODELO_PADRAO
-from project_nov26_p2_cardapios.metricas import avaliar, casar_itens, precisao_recall_alergenos
+from project_nov26_p2_cardapios.metricas import avaliar, casar_itens, resumir_configuracao
 from project_nov26_p2_cardapios.schema import Cardapio
 
-RAIZ = Path(__file__).resolve().parents[1]
-MODELO_PEQUENO = "liquid/lfm-2.5-2.6b:free"
+RAIZ = Path(__file__).resolve().parents[1]  # Raiz do projeto (pasta acima de scripts/)
+MODELO_PEQUENO = "liquid/lfm-2.5-2.6b:free"  # Modelo pequeno, usado na comparação de custo/erro
 
 
 def carregar_exemplos() -> list[tuple[str, dict]]:
+    # Carrega os pares (texto, JSON) de exemplo para o prompt few-shot
     pasta = RAIZ / "data/exemplos_fewshot"
     return [
         (j.with_suffix(".txt").read_text(), json.loads(j.read_text()))
@@ -25,34 +26,13 @@ def carregar_exemplos() -> list[tuple[str, dict]]:
     ]
 
 
-def resumir(linhas: list[dict]) -> dict:
-    n = len(linhas)
-    vp, fp, fn = (
-        sum(r[k] for r in linhas) for k in ("alergenos_vp", "alergenos_fp", "alergenos_fn")
-    )
-    p_alerg, r_alerg = precisao_recall_alergenos(vp, fp, fn)
-    media = lambda k: sum(r[k] for r in linhas) / n  # noqa: E731
-    return {
-        "json_valido": media("json_valido"),
-        "valido_na_1a_tentativa": sum(r["tentativas"] == 1 and r["json_valido"] for r in linhas)
-        / n,
-        "f1_nomes": media("f1_nomes"),
-        "acuracia_preco": media("acuracia_preco"),
-        "acuracia_categoria": media("acuracia_categoria"),
-        "precisao_alergenos": p_alerg,
-        "recall_alergenos": r_alerg,
-        "acuracia_status_alergenos": media("acuracia_status_alergenos"),
-        "latencia_media_s": media("latencia_s"),
-        "tokens_entrada_medios": media("tokens_entrada"),
-        "tokens_saida_medios": media("tokens_saida"),
-    }
-
-
 def coletar_erros(extraido: Cardapio | None, gabarito: Cardapio, menu: str) -> list[dict]:
-    if extraido is None:
+    # Lista os erros item a item, para inspeção manual em reports/erros.json
+    if extraido is None:  # JSON inválido: um único erro para o cardápio inteiro
         return [{"menu": menu, "tipo": "json_invalido"}]
     erros = []
-    for e, g in casar_itens(extraido.itens, gabarito.itens):
+    for e, g in casar_itens(extraido.itens, gabarito.itens):  # Só compara itens casados
+        # Erro de preço: um tem preço e o outro não, ou os valores diferem em 0,01 ou mais
         if (e.preco is None) != (g.preco is None) or (
             e.preco is not None and g.preco is not None and abs(e.preco - g.preco) >= 0.01
         ):
@@ -65,6 +45,7 @@ def coletar_erros(extraido: Cardapio | None, gabarito: Cardapio, menu: str) -> l
                     "gabarito": g.preco,
                 }
             )
+        # Erro de alergênicos: conjuntos diferentes, ou None × lista
         if set(e.alergenos or []) != set(g.alergenos or []) or (e.alergenos is None) != (
             g.alergenos is None
         ):
@@ -77,7 +58,7 @@ def coletar_erros(extraido: Cardapio | None, gabarito: Cardapio, menu: str) -> l
                     "gabarito": g.alergenos,
                 }
             )
-        if e.categoria != g.categoria:
+        if e.categoria != g.categoria:  # Erro de categoria
             erros.append(
                 {
                     "menu": menu,
@@ -91,32 +72,38 @@ def coletar_erros(extraido: Cardapio | None, gabarito: Cardapio, menu: str) -> l
 
 
 def main() -> None:
+    # As três configurações comparadas: (modelo, exemplos few-shot ou None)
     configs = {
         "zero_shot": (MODELO_PADRAO, None),
         "few_shot": (MODELO_PADRAO, carregar_exemplos()),
         "zero_shot_modelo_pequeno": (MODELO_PEQUENO, None),
     }
+    # Acumuladores do resumo geral e dos erros de todas as configurações
     resumo, todos_erros = {"modelo": MODELO_PADRAO, "modelo_pequeno": MODELO_PEQUENO}, {}
     for nome, (modelo, exemplos) in configs.items():
-        linhas, erros = [], []
+        linhas, erros = [], []  # Resultados e erros de uma configuração
         for gab_path in sorted((RAIZ / "data/gabarito").glob("*.json")):
-            gabarito = Cardapio.model_validate_json(gab_path.read_text())
-            texto = (RAIZ / "data/menus" / f"{gab_path.stem}.txt").read_text()
-            extraido, meta = extrair(texto, exemplos, modelo)
+            gabarito = Cardapio.model_validate_json(gab_path.read_text())  # Gabarito certo
+            texto = (RAIZ / "data/menus" / f"{gab_path.stem}.txt").read_text()  # Entrada ruidosa
+            extraido, meta = extrair(texto, exemplos, modelo)  # Chama o LLM
+            # Uma linha por cardápio: métricas + metadados de tentativas/latência/tokens
             linhas.append({"menu": gab_path.stem, **avaliar(extraido, gabarito), **meta})
             erros += coletar_erros(extraido, gabarito, gab_path.stem)
             f1 = linhas[-1]["f1_nomes"]
             print(f"{nome:9} {gab_path.stem}: f1={f1:.2f} tentativas={meta['tentativas']}")
+        # Grava o CSV detalhado por cardápio desta configuração
         with open(RAIZ / f"reports/resultados_{nome}.csv", "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=list(linhas[0]))
             w.writeheader()
             w.writerows(linhas)
-        resumo[nome] = {k: round(v, 3) for k, v in resumir(linhas).items()}
+        # Guarda o resumo arredondado (3 casas) desta configuração
+        resumo[nome] = {k: round(v, 3) for k, v in resumir_configuracao(linhas).items()}
         todos_erros[nome] = erros
+    # Grava os relatórios finais em JSON (resumo e erros)
     (RAIZ / "reports/resumo.json").write_text(json.dumps(resumo, indent=2, ensure_ascii=False))
     (RAIZ / "reports/erros.json").write_text(json.dumps(todos_erros, indent=2, ensure_ascii=False))
     print(json.dumps(resumo, indent=2, ensure_ascii=False))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # Só executa main() quando o arquivo é rodado diretamente
     main()
